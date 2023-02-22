@@ -20,9 +20,7 @@ void run_client(char* host, char* port, int loops){
     for (auto i = 0; i < loops; i++){
       std::string message = "Hello, world!";
       boost::asio::write(s, boost::asio::buffer(message.c_str(), message.size()));
-
-      sleep(1);
-
+      
       char reply[max_length];
       boost::asio::read(s,boost::asio::buffer(reply, message.size()));
     }
